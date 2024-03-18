@@ -17,9 +17,9 @@ To begin, install globally the tools:
 - [client](apps/client)
 - [server](apps/server)
 
-### Install dependencies in the projects folder
+### Install all dependencies
 
-`pnpm install`
+`pnpm install -r`
 
 Once installed, run the following commands for common tasks:
 
