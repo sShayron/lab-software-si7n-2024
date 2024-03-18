@@ -1,0 +1,36 @@
+type: 'application'
+
+fileGroups:
+  app:
+    - 'src/**/*'
+    - '.env'
+
+tasks:
+  build:
+    command: 'swc src -d dist --source-maps --copy-files'
+    inputs:
+      - '@group(app)'
+      - '@group(sources)'
+
+  dev:
+    deps:
+      - '~:start-proxy'
+      - '~:db-update'
+    command: 'docker-compose -p lab-software-si7n-2024 up server'
+    local: true
+
+  start-proxy:
+    command: 'docker-compose -p lab-software-si7n-2024 up -d proxy'
+
+  start-db:
+    command: 'docker-compose -p lab-software-si7n-2024 up -d mysql'
+
+  db-update:
+    deps:
+      - '~:start-db'
+    command: 'timestamp=$(date +%s); source .env; prisma migrate deploy'
+
+  db-seed:
+    deps:
+      - '~:db-update'
+    command: 'source .env; prisma db seed'

@@ -1,0 +1,43 @@
+.cache/
+node_modules/
+build/
+cjs/
+coverage/
+dist/
+dts/
+esm/
+lib/
+mjs/
+umd/
+logs/
+*.d.ts
+*.d.cts
+*.d.mts
+*.min.js
+*.map
+*.snap
+
+# Vue files are formatted via ESLint
+*.vue
+
+# Next
+.next/
+
+# Nuxt
+.nuxt/
+.output/
+
+# Svelte
+.svelte-kit/
+
+# Angular
+.angular
+
+.lintstagedrc.json
+.prettierrc
+.vscode/
+docker-compose.yml
+ecosystem.config.js
+nodemon.json
+pnpm-lock.yaml
+swagger.yaml
